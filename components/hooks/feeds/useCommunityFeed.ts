@@ -3,7 +3,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 import { trigger } from "react-native-haptic-feedback";
 import { useToast } from "native-base";
-import { UseFeed, useFeed } from "./feedsHooks";
+import { UseFeed, useFeed } from "./useFeed";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import { selectPost } from "../../../slices/post/postSlice";
 import { subscribeToCommunity } from "../../../slices/communities/communitiesActions";

@@ -3,7 +3,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Alert } from "react-native";
 import FeedView from "../../ui/Feed/FeedView";
 import FeedHeaderDropdown from "../../ui/Feed/FeedHeaderDropdown";
-import { useFeed } from "../../hooks/feeds/feedsHooks";
+import { useFeed } from "../../hooks/feeds/useFeed";
 import {
   initialize,
   lemmyInstance,

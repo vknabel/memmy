@@ -14,7 +14,7 @@ import CIconButton from "../CIconButton";
 import FeedHeaderDropdownDrawer from "./FeedHeaderDropdownDrawer";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import { selectFeed, setDropdownVisible } from "../../../slices/feed/feedSlice";
-import { UseFeed } from "../../hooks/feeds/feedsHooks";
+import { UseFeed } from "../../hooks/feeds/useFeed";
 import LoadingFooter from "../Loading/LoadingFooter";
 import LoadingErrorFooter from "../Loading/LoadingErrorFooter";
 import { lemmyAuthToken, lemmyInstance } from "../../../lemmy/LemmyInstance";
