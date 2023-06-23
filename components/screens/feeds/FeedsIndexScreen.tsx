@@ -11,7 +11,7 @@ import {
 } from "../../../lemmy/LemmyInstance";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import { getSubscribedCommunities } from "../../../slices/communities/communitiesActions";
-import CIconButton from "../../ui/CIconButton";
+import CIconButton from "../../ui/buttons/CIconButton";
 import {
   selectAccounts,
   selectCurrentAccount,

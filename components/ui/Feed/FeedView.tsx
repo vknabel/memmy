@@ -10,7 +10,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import FeedItem from "./FeedItem";
 import LoadingView from "../Loading/LoadingView";
 import SortIconType from "../../../types/SortIconType";
-import CIconButton from "../CIconButton";
+import CIconButton from "../buttons/CIconButton";
 import FeedHeaderDropdownDrawer from "./FeedHeaderDropdownDrawer";
 import { useAppDispatch, useAppSelector } from "../../../store";
 import { selectFeed, setDropdownVisible } from "../../../slices/feed/feedSlice";
