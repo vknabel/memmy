@@ -59,6 +59,14 @@ function NewCommentScreen({
     ? responseTo.post.counts.downvotes
     : responseTo.comment.counts.downvotes;
 
+  useEffect(() => {
+    navigation.setOptions({
+      headerLeft: () => headerLeft(),
+      headerRight: () => headerRight(),
+      title: responseTo.post ? "Replying to Post" : "Replying to Comment",
+    });
+  }, [newComment.content]);
+
   const headerLeft = () => (
     <Button title="Cancel" onPress={() => navigation.pop()} />
   );
@@ -70,14 +78,6 @@ function NewCommentScreen({
       disabled={newComment.loading}
     />
   );
-
-  useEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => headerLeft(),
-      headerRight: () => headerRight(),
-      title: responseTo.post ? "Replying to Post" : "Replying to Comment",
-    });
-  }, [newComment.content]);
 
   if (newComment.loading) {
     return <LoadingView />;
