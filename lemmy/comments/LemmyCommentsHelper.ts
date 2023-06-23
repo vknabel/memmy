@@ -1,5 +1,5 @@
 import { CommentView } from "lemmy-js-client";
-import { NestedComment } from "../../components/hooks/post/postHooks";
+import NestedComment from "./NestedComment";
 
 const findAndAddComment = (
   chain: NestedComment[],

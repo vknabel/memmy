@@ -43,7 +43,6 @@ import { selectCurrentAccount } from "../../../slices/accounts/accountsSlice";
 import { setResponseTo } from "../../../slices/newComment/newCommentSlice";
 import { selectSettings } from "../../../slices/settings/settingsSlice";
 import { useAppDispatch, useAppSelector } from "../../../store";
-import { NestedComment } from "../../hooks/post/postHooks";
 import AvatarUsername from "../common/AvatarUsername";
 import SmallVoteIcons from "../common/SmallVoteIcons";
 import RenderMarkdown from "../markdown/RenderMarkdown";
@@ -51,6 +50,7 @@ import { getUserFullName } from "../../../lemmy/LemmyHelpers";
 import { getBaseUrl } from "../../../helpers/LinkHelper";
 import NamePill from "../NamePill";
 import { selectSite, setUnread } from "../../../slices/site/siteSlice";
+import NestedComment from "../../../lemmy/comments/NestedComment";
 
 function CommentItem2({
   nestedComment,

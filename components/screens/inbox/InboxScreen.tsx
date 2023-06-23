@@ -10,9 +10,9 @@ import { useAppSelector } from "../../../store";
 import { selectSite } from "../../../slices/site/siteSlice";
 import LoadingErrorView from "../../ui/Loading/LoadingErrorView";
 import CommentItem2 from "../../ui/comments/CommentItem2";
-import { NestedComment } from "../../hooks/post/postHooks";
 import { ILemmyVote } from "../../../lemmy/types/ILemmyVote";
 import LoadingModal from "../../ui/Loading/LoadingModal";
+import NestedComment from "../../../lemmy/comments/NestedComment";
 
 function InboxScreen({
   navigation,
