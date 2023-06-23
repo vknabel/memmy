@@ -26,28 +26,18 @@ function FeedsIndexScreen({
 }: {
   navigation: NativeStackNavigationProp<any>;
 }) {
-  const feed = useFeed();
-
+  // Global State
   const currentAccount = useAppSelector(selectCurrentAccount);
   const accounts = useAppSelector(selectAccounts);
+
+  // Refs
   const previousAccount = useRef<Account | null>(null);
 
-  const dispatch = useAppDispatch();
+  // Hooks
+  const feed = useFeed();
 
-  const headerTitle = () => (
-    <FeedHeaderDropdown
-      title={`${
-        currentAccount ? currentAccount.username : accounts[0].username
-      }@${currentAccount ? currentAccount.instance : accounts[0].instance}`}
-      enabled
-    />
-  );
-  const headerLeft = () => (
-    <CIconButton
-      name="star-outline"
-      onPress={() => navigation.navigate("Subscriptions")}
-    />
-  );
+  // Other hooks
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     navigation.setOptions({
@@ -87,6 +77,21 @@ function FeedsIndexScreen({
     feed.doLoad(true);
     feed.setLoaded(true);
   };
+
+  const headerTitle = () => (
+    <FeedHeaderDropdown
+      title={`${
+        currentAccount ? currentAccount.username : accounts[0].username
+      }@${currentAccount ? currentAccount.instance : accounts[0].instance}`}
+      enabled
+    />
+  );
+  const headerLeft = () => (
+    <CIconButton
+      name="star-outline"
+      onPress={() => navigation.navigate("Subscriptions")}
+    />
+  );
 
   return <FeedView feed={feed} />;
 }
