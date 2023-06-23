@@ -8,7 +8,6 @@ import useInbox from "../../hooks/inbox/useInbox";
 import ButtonTwo from "../../ui/buttons/ButtonTwo";
 import { useAppSelector } from "../../../store";
 import { selectSite } from "../../../slices/site/siteSlice";
-import LoadingView from "../../ui/Loading/LoadingView";
 import LoadingErrorView from "../../ui/Loading/LoadingErrorView";
 import CommentItem2 from "../../ui/CommentItem2";
 import { NestedComment } from "../../hooks/post/postHooks";

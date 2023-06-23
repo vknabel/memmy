@@ -26,19 +26,26 @@ function NewCommentScreen({
 }: {
   navigation: NativeStackNavigationProp<any>;
 }) {
+  // Global state
+  const { responseTo } = useAppSelector(selectNewComment);
+
+  // State
   const [selection, setSelection] = useState({
     start: 0,
     end: 0,
   });
 
+  // Refs
   const inputRef = useRef<TextInput>();
 
+  // Hooks
   const newComment = useNewComment();
+
+  // Other hooks
   const theme = useTheme();
   const colorMode = useColorMode();
 
-  const { responseTo } = useAppSelector(selectNewComment);
-
+  // Other
   const myVote = responseTo.post
     ? responseTo.post.my_vote
     : responseTo.comment.my_vote;
