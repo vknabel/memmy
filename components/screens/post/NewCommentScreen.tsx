@@ -20,6 +20,8 @@ import useNewComment from "../../hooks/newComment/newCommentHooks";
 import { truncateName } from "../../../helpers/TextHelper";
 import RenderMarkdown from "../../ui/markdown/RenderMarkdown";
 import KeyboardAccessory from "../../ui/KeyboardAccessory";
+import SmallVoteIcons from "../../ui/common/SmallVoteIcons";
+import { ILemmyVote } from "../../../lemmy/types/ILemmyVote";
 
 function NewCommentScreen({
   navigation,
@@ -49,6 +51,13 @@ function NewCommentScreen({
   const myVote = responseTo.post
     ? responseTo.post.my_vote
     : responseTo.comment.my_vote;
+
+  const upvotes = responseTo.post
+    ? responseTo.post.counts.upvotes
+    : responseTo.comment.counts.upvotes;
+  const downvotes = responseTo.post
+    ? responseTo.post.counts.downvotes
+    : responseTo.comment.counts.downvotes;
 
   const headerLeft = () => (
     <Button title="Cancel" onPress={() => navigation.pop()} />
@@ -116,32 +125,12 @@ function NewCommentScreen({
             </Text>
             <HStack space={3} alignItems="center">
               <HStack space={0} alignItems="center">
-                <Icon
-                  as={Ionicons}
-                  name={
-                    myVote !== -1 ? "arrow-up-outline" : "arrow-down-outline"
-                  }
-                  color={
-                    myVote === -1
-                      ? "orange.500"
-                      : myVote === 1
-                      ? "green.500"
-                      : "gray.500"
-                  }
+                <SmallVoteIcons
+                  upvotes={upvotes}
+                  downvotes={downvotes}
+                  myVote={myVote as ILemmyVote}
+                  initialVote={0}
                 />
-                <Text
-                  color={
-                    myVote === -1
-                      ? "orange.500"
-                      : myVote === 1
-                      ? "green.500"
-                      : "gray.500"
-                  }
-                >
-                  {(responseTo.post
-                    ? responseTo.post.counts.score
-                    : responseTo.comment.counts.score) + myVote}
-                </Text>
               </HStack>
               <HStack space={1} alignItems="center">
                 <Icon as={Ionicons} name="time-outline" />
