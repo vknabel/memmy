@@ -46,13 +46,12 @@ function Start() {
         nextAppState === "active" &&
         !refreshInterval
       ) {
-        writeToLog("Starting refresh interval.");
         startInterval();
+        dispatch(getUnreadCount());
       } else if (
         appState.current === "active" &&
         nextAppState.match(/inactive|background/)
       ) {
-        writeToLog("Ending refresh interval.");
         clearInterval(refreshInterval);
         refreshInterval = null;
       }
@@ -66,9 +65,7 @@ function Start() {
   }, [loaded]);
 
   const startInterval = () => {
-    console.log("starting an interval.");
     refreshInterval = setInterval(() => {
-      console.log("Looking for updates...");
       if (lemmyInstance && lemmyAuthToken) {
         dispatch(getUnreadCount());
       }
