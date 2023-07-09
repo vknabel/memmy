@@ -73,7 +73,7 @@ function ContentScreen({
                 "Most Comments",
                 "Cancel",
               ];
-              const cancelButtonIndex = 6;
+              const cancelButtonIndex = options.length - 1;
 
               showActionSheetWithOptions(
                 {
