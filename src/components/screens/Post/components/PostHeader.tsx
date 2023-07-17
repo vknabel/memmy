@@ -8,7 +8,6 @@ import {
   VStack,
 } from "native-base";
 import { PostView } from "lemmy-js-client";
-import { getBaseUrl } from "../../../../helpers/LinkHelper";
 import PostContentView from "./PostContentView";
 import AvatarUsername from "../../../common/AvatarUsername";
 import CommunityLink from "../../../common/CommunityLink";
@@ -45,8 +44,6 @@ function PostHeader({
   const theme = useTheme();
   const { tapToCollapse } = useAppSelector(selectSettings);
 
-  const instanceBaseUrl = getBaseUrl(currentPost.community.actor_id);
-
   const [hideSLA, setHideSLA] = useState(false);
 
   const onPress = useCallback(() => {
@@ -80,11 +77,8 @@ function PostHeader({
         <AvatarUsername creator={currentPost?.creator} />
       </HStack>
       <HStack space={2} mx={4} mb={2}>
-        <CommunityLink
-          community={currentPost?.community}
-          instanceBaseUrl={instanceBaseUrl}
-        />
-        <CommentCount commentCount={currentPost.counts.comments} />
+        <CommunityLink community={currentPost?.community} />
+        <CommentCount commentCount={currentPost?.counts.comments} />
         <DatePublished published={currentPost?.post.published} />
       </HStack>
 

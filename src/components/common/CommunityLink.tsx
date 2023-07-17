@@ -8,10 +8,9 @@ import Link from "./Buttons/Link";
 
 interface CommunityLinkProps {
   community: Community;
-  instanceBaseUrl?: string;
 }
 
-function CommunityLink({ community, instanceBaseUrl }: CommunityLinkProps) {
+function CommunityLink({ community }: CommunityLinkProps) {
   const theme = useTheme();
 
   return (
@@ -43,11 +42,6 @@ function CommunityLink({ community, instanceBaseUrl }: CommunityLinkProps) {
             {community.name}
           </Text>
         </HStack>
-        {instanceBaseUrl && (
-          <Text color={theme.colors.app.textSecondary} fontWeight="medium">
-            @{instanceBaseUrl}
-          </Text>
-        )}
       </HStack>
     </Link>
   );

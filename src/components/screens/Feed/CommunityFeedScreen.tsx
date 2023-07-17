@@ -98,7 +98,7 @@ function FeedsCommunityScreen({
                 </Text>
               </HStack>
             </HStack>
-            <Text fontSize="3xl" fontWeight="bold">
+            <Text fontSize="2xl" fontWeight="bold">
               {communityFeed.feed.community.community.name}
             </Text>
             <Text fontSize="md" color={theme.colors.app.textSecondary} mt={-2}>
