@@ -76,18 +76,6 @@ function FeedView({ feed, community = false, header }: FeedViewProps) {
   useEffect(() => {
     navigation.setOptions({
       // eslint-disable-next-line react/no-unstable-nested-components
-      headerTitle: () => (
-        <FeedListingTypeButton
-          feed={feed}
-          onPress={() =>
-            flashList?.current?.scrollToOffset({
-              animated: true,
-              offset: 0,
-            })
-          }
-        />
-      ),
-      // eslint-disable-next-line react/no-unstable-nested-components
       headerRight: () => (
         <HStack space={3}>
           <FeedSortButton
@@ -107,6 +95,23 @@ function FeedView({ feed, community = false, header }: FeedViewProps) {
         </HStack>
       ),
     });
+
+    if (!community) {
+      navigation.setOptions({
+        // eslint-disable-next-line react/no-unstable-nested-components
+        headerTitle: () => (
+          <FeedListingTypeButton
+            feed={feed}
+            onPress={() =>
+              flashList?.current?.scrollToOffset({
+                animated: true,
+                offset: 0,
+              })
+            }
+          />
+        ),
+      });
+    }
   }, [feed, postCommunity, dropdownVisible]);
 
   const renderItem = React.useCallback(
